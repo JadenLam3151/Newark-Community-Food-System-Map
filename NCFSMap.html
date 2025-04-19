@@ -1,9 +1,9 @@
-<!-- NJIT STS325 -->
+<!-- NJIT STS325H -->
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Newark Communtiy Food System Locations</title>
+    <title>Newark Community Food System Locations</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
     <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
@@ -73,6 +73,14 @@
       .marker.active {
         transform: scale(1.15);
       }
+      .user-marker {
+        background-image: url('https://cdn3.iconfinder.com/data/icons/flat-pro-basic-set-1-1/32/location-gray-512.png');
+        background-size: cover;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 2px solid #fff;
+      }
       .mapboxgl-popup-content {
         background: rgba(255, 255, 255, 0.8) !important;
         padding: 10px;
@@ -108,100 +116,45 @@
     <script>
       mapboxgl.accessToken = 'pk.eyJ1IjoiamFkZW5sYW0zMTUxIiwiYSI6ImNtOGI0cHA0MjBkYWUya29iZHNyZ2lzcmoifQ.1L9hjODLUr8l3jk7ntmMiQ';
 
+      // Instruction: To add a new website mapping for a marker, insert an entry in the format:
+      //   { key: "partial lowercase title", url: "https://example.com" }
+      // into the array below.
       const websiteMappings = [
-        {
-          key: "south 17th and 18th streets neighborhood association garden of life",
-          url: "https://www.christinacherry.org/south-17th-18th-st-neighborhood-association"
-        },
-        {
-          key: "greater newark conservancy hawthorne ave. farm",
-          url: "https://www.citybloom.org/programs/urban-agriculture/hawthorne-avenue-farm.html"
-        },
-        {
-          key: "greater newark conservancy prince st.",
-          url: "https://www.citybloom.org/"
-        },
-        {
-          key: "morning glory garden for change",
-          url: "https://www.wholecitiesfoundation.org/community-partner/morning-glory-garden-for-change/"
-        },
-        {
-          key: "kinney community",
-          url: "https://www.wholecitiesfoundation.org/2020/04/28/kinney-community-garden-a-growing-gathering-and-learning-space-in-newark/"
-        },
-        {
-          key: "lincoln park community garden",
-          url: "https://pshope.org/lpccd-farm/"
-        },
-        {
-          key: "garden of life",
-          url: "https://www.citybloom.org/programs/urban-agriculture/plot-it-fresh-community-garden/plot-it-fresh-host-site-profiles.html"
-        },
-        {
-          key: "giving one tenth garden",
-          url: "https://www.wholecitiesfoundation.org/community-partner/giving-one-tenth-community-garden/"
-        },
-        {
-          key: "beth greenhouse farm",
-          url: "https://www.rwjbh.org/treatment-care/wellness/the-beth-greenhouse/"
-        },
-        {
-          key: "swag project farms location 1",
-          url: "https://pshope.org/swag-project/"
-        },
-        {
-          key: "swag project farms location 2",
-          url: "https://pshope.org/swag-project/"
-        },
-        {
-          key: "down bottom farms",
-          url: "https://ironboundcc.org/down-bottom-farms/"
-        },
-        {
-          key: "rabbit hole farms",
-          url: "https://www.rabbitholefarmnewark.com/"
-        },
-        {
-          key: "branch brook",
-          url: "https://essexcountyparks.org/parks/branch-brook-park"
-        },
-        {
-          key: "the people's garden",
-          url: "https://www.sasglocal.com/urban-agriculture/the-peoples-garden/"
-        },
-        {
-          key: "steam urban a healing sanctuary",
-          url: "https://www.steamurban.org/ahealing-sanctuary"
-        },
-        {
-          key: "price institute, rutgers-newark healing garden",
-          url: "https://sites.rutgers.edu/price-healing-garden/about-us/"
-        },
-        {
-          key: "al-munir llc jannah on grafton",
-          url: "https://www.al-munirconsulting.com/al-munirarticles/placemaking-and-urban-farming"
-        },
-        {
-          key: "eden's farm",
-          url: "https://www.citybloom.org/events/event-calendar.html/event/2024/09/25/1727299800/farm-stand-at-eden-s-farm/495542"
-        },
-        {
-          key: "urban league of essex county mlk community garden",
-          url: "https://ulec.org/tag/garden/"
-        },
-        {
-          key: "garden of hope",
-          url: "https://www.sasglocal.com/garden-of-hope/"
-        },
-        {
-          key: "tree house cares & friends bloom & veggie garden",
-          url: "https://www.treehouseculturalarts.com/"
-        }
+        { key: "south 17th and 18th streets neighborhood association garden of life", url: "https://www.christinacherry.org/south-17th-18th-st-neighborhood-association" },
+        { key: "greater newark conservancy hawthorne ave. farm",       url: "https://www.citybloom.org/programs/urban-agriculture/hawthorne-avenue-farm.html" },
+        { key: "greater newark conservancy prince st.",               url: "https://www.citybloom.org/" },
+        { key: "morning glory garden for change",                    url: "https://www.wholecitiesfoundation.org/community-partner/morning-glory-garden-for-change/" },
+        { key: "kinney community",                                    url: "https://www.wholecitiesfoundation.org/2020/04/28/kinney-community-garden-a-growing-gathering-and-learning-space-in-newark/" },
+        { key: "lincoln park community garden",                      url: "https://pshope.org/lpccd-farm/" },
+        { key: "garden of life",                                     url: "https://www.citybloom.org/programs/urban-agriculture/plot-it-fresh-community-garden/plot-it-fresh-host-site-profiles.html" },
+        { key: "giving one tenth garden",                            url: "https://www.wholecitiesfoundation.org/community-partner/giving-one-tenth-community-garden/" },
+        { key: "beth greenhouse farm",                               url: "https://www.rwjbh.org/treatment-care/wellness/the-beth-greenhouse/" },
+        { key: "swag project farms location 1",                      url: "https://pshope.org/swag-project/" },
+        { key: "swag project farms location 2",                      url: "https://pshope.org/swag-project/" },
+        { key: "down bottom farms",                                  url: "https://ironboundcc.org/down-bottom-farms/" },
+        { key: "rabbit hole farms",                                  url: "https://www.rabbitholefarmnewark.com/" },
+        { key: "branch brook",                                       url: "https://essexcountyparks.org/parks/branch-brook-park" },
+        { key: "the people's garden",                                url: "https://www.sasglocal.com/urban-agriculture/the-peoples-garden/" },
+        { key: "steam urban a healing sanctuary",                    url: "https://www.steamurban.org/ahealing-sanctuary" },
+        { key: "price institute, rutgers-newark healing garden",     url: "https://sites.rutgers.edu/price-healing-garden/about-us/" },
+        { key: "al-munir llc jannah on grafton",                     url: "https://www.al-munirconsulting.com/al-munirarticles/placemaking-and-urban-farming" },
+        { key: "eden's farm",                                        url: "https://www.citybloom.org/events/event-calendar.html/event/2024/09/25/1727299800/farm-stand-at-eden-s-farm/495542" },
+        { key: "urban league of essex county mlk community garden",  url: "https://ulec.org/tag/garden/" },
+        { key: "natural ground 1 the culture spot",                 url: "http://www.denacorbin.com/" }
       ];
 
       const geojson = {
         type: 'FeatureCollection',
         features: [
+          // Instruction: To add a new map marker, insert a Feature object here with the structure:
+          // {
+          //   type: 'Feature',
+          //   geometry: { type: 'Point', coordinates: [longitude, latitude] },
+          //   properties: {
+          //     title: 'Your Garden Name',
+          //     description: '<a href="https://example.com" target="_blank">Website</a><br>Address here'
+          //   }
+          // },
           {
             type: 'Feature',
             geometry: { type: 'Point', coordinates: [-74.1975902, 40.7466898] },
@@ -248,22 +201,6 @@
             properties: {
               title: 'Morning Glory Garden for Change',
               description: '<a href="https://example.com" target="_blank">Website</a><br>177-181 Sherman Ave., Newark, NJ'
-            }
-          },
-          {
-            type: 'Feature',
-            geometry: { type: 'Point', coordinates: [-74.2146286, 40.7109485] },
-            properties: {
-              title: 'Grow a Garden, Grow Yourself',
-              description: '<a href="https://example.com" target="_blank">Website</a><br>215 Lehigh Ave, Newark, NJ'
-            }
-          },
-          {
-            type: 'Feature',
-            geometry: { type: 'Point', coordinates: [-74.2218345, 40.7433762] },
-            properties: {
-              title: 'Late Bloomer Project',
-              description: '<a href="https://example.com" target="_blank">Website</a><br>48 Columbia Ave, Newark, NJ'
             }
           },
           {
@@ -326,7 +263,7 @@
             type: 'Feature',
             geometry: { type: 'Point', coordinates: [-74.2230098, 40.7403269] },
             properties: {
-              title: 'Plant Nursery',
+              title: 'Plant It Nursery',
               description: '<a href="https://example.com" target="_blank">Website</a><br>138 Columbia Avenue, Newark, NJ'
             }
           },
@@ -400,14 +337,6 @@
             properties: {
               title: 'Healthy Havens - Norwood St. Location',
               description: '<a href="https://example.com" target="_blank">Website</a><br>69 Norwood Street, Newark, NJ'
-            }
-          },
-          {
-            type: 'Feature',
-            geometry: { type: 'Point', coordinates: [-74.2316052, 40.751349] },
-            properties: {
-              title: 'Memorial Garden',
-              description: '<a href="https://example.com" target="_blank">Website</a><br>158 Palm Street, Newark, NJ'
             }
           },
           {
@@ -493,41 +422,14 @@
             feature.properties.title === "Healthy Havens - Norwood St. Location"
           ) {
             detailsLink = `<a href="hov_garden.html" target="_blank">More info</a>`;
-          } else if (feature.properties.title === "Grow a Garden, Grow Yourself") {
-            popupHTML = `<h3>${feature.properties.title}</h3>
-                         <p>${addressText}</p>
-                         <p><strong>Contact Information</strong><br>
-                         Dena Corbin<br>
-                         <a href="mailto:naturalground1.360@gmail.com">naturalground1.360@gmail.com</a><br>
-                         (201) 532-9650</p>`;
-          } else if (feature.properties.title === "Memorial Garden") {
-            popupHTML = `<h3>${feature.properties.title}</h3>
-                         <p>${addressText}</p>
-                         <p><strong>Contact Information</strong><br>
-                         Sabrina Ross<br>
-                         (973) 204-7732<br>
-                         <a href="mailto:sross@kab.org">sross@kab.org</a></p>`;
-          } else if (feature.properties.title === "Late Bloomer Project") {
-            popupHTML = `<h3>${feature.properties.title}</h3>
-                         <p>${addressText}</p>
-                         <p><strong>Contact Information</strong><br>
-                         Sabrina Ross<br>
-                         <a href="mailto:sross@uvso.org">sross@uvso.org</a><br>
-                         (862) 227-3022</p>`;
-          } else if (feature.properties.title === "Plant Nursery") {
+          } else if (feature.properties.title === "Plant It Nursery") {
             popupHTML = `<h3>${feature.properties.title}</h3>
                          <p>${addressText}</p>
                          <p><strong>Contact Information</strong><br>
                          Melissa Leuthner<br>
                          (347) 834-2252<br>
+                         Instagram: @plantitnj <br>
                          <a href="mailto:Plantitnj@gmail.com">Plantitnj@gmail.com</a></p>`;
-          } else if (feature.properties.title === "Natural Ground 1 The Culture Spot") {
-            popupHTML = `<h3>${feature.properties.title}</h3>
-                         <p>${addressText}</p>
-                         <p><strong>Contact Information</strong><br>
-                         Hajjah Dena Corbin<br>
-                         <a href="mailto:naturalground1.360@gmail.com">naturalground1.360@gmail.com</a><br>
-                         (201) 532-9650</p>`;
           } else {
             detailsLink = `<a href="details.html?location=${encodeURIComponent(feature.properties.title)}" target="_blank">More info</a>`;
           }
@@ -548,13 +450,29 @@
       document.getElementById('search-bar').addEventListener('input', function (e) {
         const query = e.target.value.toLowerCase();
         markers.forEach((item) => {
-          if (item.title.indexOf(query) > -1) {
-            item.marker.getElement().style.display = '';
-          } else {
-            item.marker.getElement().style.display = 'none';
-          }
+          item.marker.getElement().style.display =
+            item.title.indexOf(query) > -1 ? '' : 'none';
         });
       });
+
+      if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(
+          function (position) {
+            const userCoordinates = [position.coords.longitude, position.coords.latitude];
+            const userMarkerEl = document.createElement('div');
+            userMarkerEl.className = 'user-marker';
+            new mapboxgl.Marker(userMarkerEl)
+              .setLngLat(userCoordinates)
+              .setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML("<h3>You are here!</h3>"))
+              .addTo(map);
+          },
+          function (error) {
+            console.error("Error retrieving your location: ", error);
+          }
+        );
+      } else {
+        console.error("Geolocation is not supported by this browser.");
+      }
     </script>
   </body>
 </html>
