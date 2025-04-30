@@ -1,4 +1,4 @@
-<!-- NJIT STS325H -->
+<!-- NJIT STS325H, Jaden Lam-->
 <!doctype html>
 <html lang="en">
   <head>
@@ -124,17 +124,14 @@
         { key: "greater newark conservancy hawthorne ave. farm",       url: "https://www.citybloom.org/programs/urban-agriculture/hawthorne-avenue-farm.html" },
         { key: "greater newark conservancy prince st.",               url: "https://www.citybloom.org/" },
         { key: "morning glory garden for change",                    url: "https://www.wholecitiesfoundation.org/community-partner/morning-glory-garden-for-change/" },
-        { key: "kinney community",                                    url: "https://www.wholecitiesfoundation.org/2020/04/28/kinney-community-garden-a-growing-gathering-and-learning-space-in-newark/" },
-        { key: "lincoln park community garden",                      url: "https://pshope.org/lpccd-farm/" },
+        { key: "kinney community garden",                            url: "https://www.wholecitiesfoundation.org/2020/04/28/kinney-community-garden-a-growing-gathering-and-learning-space-in-newark/" },
+        { key: "lincoln park sustainable living garden",             url: "https://pshope.org/lpccd-farm/" },
         { key: "garden of life",                                     url: "https://www.citybloom.org/programs/urban-agriculture/plot-it-fresh-community-garden/plot-it-fresh-host-site-profiles.html" },
         { key: "giving one tenth garden",                            url: "https://www.wholecitiesfoundation.org/community-partner/giving-one-tenth-community-garden/" },
         { key: "beth greenhouse farm",                               url: "https://www.rwjbh.org/treatment-care/wellness/the-beth-greenhouse/" },
-        { key: "swag project farms location 1",                      url: "https://pshope.org/swag-project/" },
-        { key: "swag project farms location 2",                      url: "https://pshope.org/swag-project/" },
         { key: "down bottom farms",                                  url: "https://ironboundcc.org/down-bottom-farms/" },
         { key: "rabbit hole farms",                                  url: "https://www.rabbitholefarmnewark.com/" },
-        { key: "branch brook",                                       url: "https://essexcountyparks.org/parks/branch-brook-park" },
-        { key: "the people's garden",                                url: "https://www.sasglocal.com/urban-agriculture/the-peoples-garden/" },
+        { key: "garden of hope",                                     url: "https://www.sasglocal.com/garden-of-hope/" },       <!-- added -->
         { key: "steam urban a healing sanctuary",                    url: "https://www.steamurban.org/ahealing-sanctuary" },
         { key: "price institute, rutgers-newark healing garden",     url: "https://sites.rutgers.edu/price-healing-garden/about-us/" },
         { key: "al-munir llc jannah on grafton",                     url: "https://www.al-munirconsulting.com/al-munirarticles/placemaking-and-urban-farming" },
@@ -146,15 +143,6 @@
       const geojson = {
         type: 'FeatureCollection',
         features: [
-          // Instruction: To add a new map marker, insert a Feature object here with the structure:
-          // {
-          //   type: 'Feature',
-          //   geometry: { type: 'Point', coordinates: [longitude, latitude] },
-          //   properties: {
-          //     title: 'Your Garden Name',
-          //     description: '<a href="https://example.com" target="_blank">Website</a><br>Address here'
-          //   }
-          // },
           {
             type: 'Feature',
             geometry: { type: 'Point', coordinates: [-74.1975902, 40.7466898] },
@@ -167,7 +155,7 @@
             type: 'Feature',
             geometry: { type: 'Point', coordinates: [-74.1810278, 40.7294032] },
             properties: {
-              title: 'Lincoln Park Community Garden',
+              title: 'Lincoln Park Sustainable Living Garden',
               description: '<a href="https://example.com" target="_blank">Website</a><br>46 W. Kinney St., Newark, NJ'
             }
           },
@@ -183,7 +171,7 @@
             type: 'Feature',
             geometry: { type: 'Point', coordinates: [-74.192392, 40.7324259] },
             properties: {
-              title: 'Kinney Community',
+              title: 'Kinney Community Garden',
               description: '<a href="https://example.com" target="_blank">Website</a><br>279 W. Kinney St., Newark, NJ'
             }
           },
@@ -205,22 +193,6 @@
           },
           {
             type: 'Feature',
-            geometry: { type: 'Point', coordinates: [-74.2052307, 40.7118193] },
-            properties: {
-              title: 'SWAG Project Farms Location 1',
-              description: '<a href="https://example.com" target="_blank">Website</a><br>343 Meeker Ave, Newark, NJ'
-            }
-          },
-          {
-            type: 'Feature',
-            geometry: { type: 'Point', coordinates: [-74.2049881, 40.7121116] },
-            properties: {
-              title: 'SWAG Project Farms Location 2',
-              description: '<a href="https://example.com" target="_blank">Website</a><br>438-440 Peshine Ave, Newark, NJ'
-            }
-          },
-          {
-            type: 'Feature',
             geometry: { type: 'Point', coordinates: [-74.1489356, 40.7294362] },
             properties: {
               title: 'Down Bottom Farms',
@@ -233,22 +205,6 @@
             properties: {
               title: 'Rabbit Hole Farms',
               description: '<a href="https://example.com" target="_blank">Website</a><br>36-38 Rose Terrace, Newark, NJ'
-            }
-          },
-          {
-            type: 'Feature',
-            geometry: { type: 'Point', coordinates: [-74.1836698, 40.759633] },
-            properties: {
-              title: 'Branch Brook Park Children’s Garden',
-              description: '<a href="https://example.com" target="_blank">Website</a><br>Branch Brook Park Children’s Garden & Park Avenue, Lake St, Newark, NJ'
-            }
-          },
-          {
-            type: 'Feature',
-            geometry: { type: 'Point', coordinates: [-74.1790463, 40.754262] },
-            properties: {
-              title: "The People's Garden",
-              description: '<a href="https://example.com" target="_blank">Website</a><br>86 Garside St., Newark, NJ'
             }
           },
           {
@@ -301,14 +257,6 @@
           },
           {
             type: 'Feature',
-            geometry: { type: 'Point', coordinates: [-74.2173735, 40.7245937] },
-            properties: {
-              title: 'South 17th and 18th Streets Neighborhood Association Garden of Life',
-              description: '<a href="https://example.com" target="_blank">Website</a><br>909 So. 18th St., Newark, NJ'
-            }
-          },
-          {
-            type: 'Feature',
             geometry: { type: 'Point', coordinates: [-74.2153722, 40.718726] },
             properties: {
               title: 'Greater Newark Conservancy Hawthorne Ave. Farm',
@@ -337,14 +285,6 @@
             properties: {
               title: 'Healthy Havens - Norwood St. Location',
               description: '<a href="https://example.com" target="_blank">Website</a><br>69 Norwood Street, Newark, NJ'
-            }
-          },
-          {
-            type: 'Feature',
-            geometry: { type: 'Point', coordinates: [-74.1962925, 40.7485725] },
-            properties: {
-              title: 'Urban League of Essex County MLK Community Garden',
-              description: '<a href="https://example.com" target="_blank">Website</a><br>Corner of 8th St and Central Ave, Newark, NJ'
             }
           },
           {
@@ -440,18 +380,18 @@
         }
 
         const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(popupHTML);
-        const mapMarker = new mapboxgl.Marker(markerWrapper)
+        new mapboxgl.Marker(markerWrapper)
           .setLngLat(feature.geometry.coordinates)
           .setPopup(popup)
           .addTo(map);
-        markers.push({ marker: mapMarker, title: feature.properties.title.toLowerCase() });
+
+        markers.push({ marker: markerWrapper, title: lowerTitle });
       });
 
       document.getElementById('search-bar').addEventListener('input', function (e) {
         const query = e.target.value.toLowerCase();
         markers.forEach((item) => {
-          item.marker.getElement().style.display =
-            item.title.indexOf(query) > -1 ? '' : 'none';
+          item.marker.style.display = item.title.indexOf(query) > -1 ? '' : 'none';
         });
       });
 
