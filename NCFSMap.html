@@ -1,4 +1,4 @@
-<!-- NJIT STS325H, Jaden Lam-->
+!-- NJIT STS325H -->
 <!doctype html>
 <html lang="en">
   <head>
@@ -116,7 +116,7 @@
     <script>
       mapboxgl.accessToken = 'pk.eyJ1IjoiamFkZW5sYW0zMTUxIiwiYSI6ImNtOGI0cHA0MjBkYWUya29iZHNyZ2lzcmoifQ.1L9hjODLUr8l3jk7ntmMiQ';
 
-      // Instruction: To add a new website mapping for a marker, insert an entry in the format:
+      // To add a new website mapping for a marker, insert an entry in the format:
       //   { key: "partial lowercase title", url: "https://example.com" }
       // into the array below.
       const websiteMappings = [
@@ -143,6 +143,20 @@
       const geojson = {
         type: 'FeatureCollection',
         features: [
+          // ===============================
+          // TEMPLATE FOR ADDING A NEW POINT:
+          // {
+          //   type: 'Feature',
+          //   geometry: { type: 'Point', coordinates: [LONGITUDE, LATITUDE] },
+          //   properties: {
+          //     title: 'NAME OF GARDEN OR LOCATION',
+          //     description: '<a href="https://example.com" target="_blank">Website</a><br>ADDRESS LINE'
+          //   }
+          // },
+          // Replace LONGITUDE and LATITUDE with coordinates.
+          // Replace title with the location name.
+          // Replace the URL and address as needed.
+          // ===============================
           {
             type: 'Feature',
             geometry: { type: 'Point', coordinates: [-74.1975902, 40.7466898] },
